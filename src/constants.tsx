@@ -75,3 +75,11 @@ export const PRICING_PLANS = [
     current: false
   }
 ];
+
+// 🔒 FREE vs PRO usage limits (NEW – required)
+export const FREE_LIMITS = {
+  mergePdf: 2,
+  splitPdf: 2,
+  imageToPdf: 2,
+  aiSummary: 1,
+};
