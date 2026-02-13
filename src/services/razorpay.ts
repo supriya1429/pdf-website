@@ -1,15 +1,14 @@
 export const payWithRazorpay = async (amount: number) => {
   try {
-    const res = await fetch(
-      "https://pdfmaster-backend-b5zm.onrender.com/create-order",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ amount }),
-      }
-    );
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
+const res = await fetch(`${BACKEND_URL}/create-order`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ amount }),
+});
 
     if (!res.ok) {
       throw new Error("Failed to create order");
