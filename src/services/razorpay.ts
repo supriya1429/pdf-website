@@ -1,6 +1,5 @@
 export const payWithRazorpay = async (amount: number) => {
   try {
-    // 1️⃣ Create order from Render backend
     const res = await fetch(
       "https://pdfmaster-backend-b5zm.onrender.com/create-order",
       {
@@ -18,9 +17,8 @@ export const payWithRazorpay = async (amount: number) => {
 
     const order = await res.json();
 
-    // 2️⃣ Open Razorpay checkout
     const options = {
-      key: import.meta.env.VITE_RAZORPAY_KEY_ID, // Your TEST public key
+      key: import.meta.env.VITE_RAZORPAY_KEY_ID,
       amount: order.amount,
       currency: "INR",
       name: "PDFMaster Pro",
@@ -29,13 +27,7 @@ export const payWithRazorpay = async (amount: number) => {
       handler: function (response: any) {
         alert("✅ Payment Successful!");
         console.log("Payment response:", response);
-
-        // Optional: mark user as Pro here
         localStorage.setItem("pdf_is_pro", "true");
-      },
-      prefill: {
-        name: "",
-        email: "",
       },
       theme: {
         color: "#2563eb",
