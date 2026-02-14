@@ -11,46 +11,50 @@ import { useUser } from '../context/UserContext';
 const Pricing: React.FC = () => {
   const { isPro, upgradeToPro } = useUser();
 
-  const startRazorpayPayment = async (planName: string, price: number) => {
-    if (planName === 'Free') return;
+ const startRazorpayPayment = async (planName: string, price: number) => {
+  if (planName === 'Free') return;
 
-    if (isPro) {
-      alert('You are already a Pro member');
-      return;
-    }
+  if (isPro) {
+    alert('You are already a Pro member');
+    return;
+  }
 
-    try {
-      const res = await fetch('http://localhost:5000/create-order', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: price })
-      });
+  try {
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
-      const order = await res.json();
+    const res = await fetch(`${BACKEND_URL}/create-order`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount: price })
+    });
 
-      const options = {
-        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
-        amount: order.amount,
-        currency: 'INR',
-        name: 'PDFMaster',
-        description: planName,
-        order_id: order.id,
-        handler: function () {
-          upgradeToPro();
-          alert('🎉 Payment successful! Pro unlocked.');
-        },
-        theme: {
-          color: '#2563eb'
-        }
-      };
+    if (!res.ok) throw new Error("Order failed");
 
-      const razorpay = new window.Razorpay(options);
-      razorpay.open();
-    } catch (error) {
-      console.error(error);
-      alert('Payment failed. Please try again.');
-    }
-  };
+    const order = await res.json();
+
+    const options = {
+      key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+      amount: order.amount,
+      currency: 'INR',
+      name: 'PDFMaster',
+      description: planName,
+      order_id: order.id,
+      handler: function () {
+        upgradeToPro();
+        alert('🎉 Payment successful! Pro unlocked.');
+      },
+      theme: { color: '#2563eb' }
+    };
+
+    const razorpay = new window.Razorpay(options);
+    razorpay.open();
+
+  } catch (error) {
+    console.error(error);
+    alert('Payment failed. Please try again.');
+  }
+};
+
 
   return (
     <div className="max-w-7xl mx-auto py-20 px-4">
