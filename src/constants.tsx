@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { Tool } from './types';
 
 export const TOOLS: Tool[] = [
@@ -32,6 +31,31 @@ export const TOOLS: Tool[] = [
     icon: '🤖📑',
     href: '/ai-summarize',
     badge: 'Pro'
+  },
+
+  // ✅ NEW TOOLS ADDED INSIDE ARRAY
+
+  {
+    id: 'compress',
+    name: 'Compress PDF',
+    description: 'Reduce PDF file size without losing quality.',
+    icon: '📉📄',
+    href: '/compress-pdf',
+    badge: 'New'
+  },
+  {
+    id: 'pdf-to-word',
+    name: 'PDF to Word',
+    description: 'Convert PDF files into editable Word documents.',
+    icon: '📄➡️📝',
+    href: '/pdf-to-word'
+  },
+  {
+    id: 'protect-pdf',
+    name: 'Protect PDF',
+    description: 'Add password protection to your PDF files.',
+    icon: '🔒📄',
+    href: '/protect-pdf'
   }
 ];
 
@@ -76,10 +100,12 @@ export const PRICING_PLANS = [
   }
 ];
 
-// 🔒 FREE vs PRO usage limits (NEW – required)
 export const FREE_LIMITS = {
   mergePdf: 2,
   splitPdf: 2,
   imageToPdf: 2,
   aiSummary: 1,
+  compress: 1,
+  pdfToWord: 1,
+  protectPdf: 1
 };

@@ -17,6 +17,10 @@ import Auth from "./pages/Auth";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import About from "./pages/About";
+import CompressPdf from './pages/CompressPdf';
+import PdfToWord from './pages/PdfToWord';
+import ProtectPdf from './pages/ProtectPdf';
+
 
 export default function App() {
   return (
@@ -49,6 +53,10 @@ export default function App() {
               <Route path="/about" element={<About />} />
 
               <Route path="*" element={<Home />} />
+              <Route path="/compress-pdf" element={<CompressPdf />} />
+<Route path="/pdf-to-word" element={<PdfToWord />} />
+<Route path="/protect-pdf" element={<ProtectPdf />} />
+
             </Routes>
           </main>
 
