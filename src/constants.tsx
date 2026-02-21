@@ -12,52 +12,57 @@ export const TOOLS: Tool[] = [
   {
     id: 'image-to-pdf',
     name: 'Image to PDF',
-    description: 'Convert JPG, PNG, and BMP images to PDF format instantly.',
+    description: 'Convert JPG and PNG images to PDF format instantly.',
     icon: '🖼️➡️📄',
     href: '/image-to-pdf'
   },
   {
     id: 'split',
     name: 'Split PDF',
-    description: 'Separate one page or a whole set for easy conversion.',
+    description: 'Separate one page or a whole set easily.',
     icon: '✂️📄',
     href: '/split-pdf',
     badge: 'Popular'
   },
   {
-    id: 'ai-summary',
-    name: 'AI Summarize',
-    description: 'Use Gemini AI to get instant insights from long PDF documents.',
-    icon: '🤖📑',
-    href: '/ai-summarize',
-    badge: 'Pro'
-  },
-
-  // ✅ NEW TOOLS ADDED INSIDE ARRAY
+  id: 'ai-summary',
+  name: 'AI Summarize',
+  description: 'Use AI to generate quick summaries from PDF documents.',
+  icon: '🤖📑',
+  href: '/ai-summarize',
+  badge: 'Pro'
+},
 
   {
-    id: 'compress',
-    name: 'Compress PDF',
-    description: 'Reduce PDF file size without losing quality.',
-    icon: '📉📄',
-    href: '/compress-pdf',
-    badge: 'New'
+    id: 'rotate',
+    name: 'Rotate PDF',
+    description: 'Rotate all pages in your PDF file.',
+    icon: '🔄📄',
+    href: '/rotate-pdf'
   },
   {
-    id: 'pdf-to-word',
-    name: 'PDF to Word',
-    description: 'Convert PDF files into editable Word documents.',
-    icon: '📄➡️📝',
-    href: '/pdf-to-word'
+    id: 'delete-pages',
+    name: 'Delete Pages',
+    description: 'Remove specific pages from your PDF.',
+    icon: '🗑️📄',
+    href: '/delete-pages'
   },
   {
-    id: 'protect-pdf',
-    name: 'Protect PDF',
-    description: 'Add password protection to your PDF files.',
-    icon: '🔒📄',
-    href: '/protect-pdf'
+    id: 'watermark',
+    name: 'Add Watermark',
+    description: 'Add text watermark to your PDF document.',
+    icon: '💧📄',
+    href: '/watermark-pdf'
+  },
+  {
+    id: 'pdf-editor',
+    name: 'PDF Editor',
+    description: 'Edit PDF files by adding text.',
+    icon: '✏️📄',
+    href: '/pdf-editor'
   }
 ];
+
 
 export const PRICING_PLANS = [
   {
@@ -104,8 +109,9 @@ export const FREE_LIMITS = {
   mergePdf: 2,
   splitPdf: 2,
   imageToPdf: 2,
-  aiSummary: 1,
-  compress: 1,
-  pdfToWord: 1,
-  protectPdf: 1
+  rotatePdf: 2,
+  deletePages: 2,
+  watermarkPdf: 1,
+  pdfEditor: 1,
+  aiSummary: 1
 };

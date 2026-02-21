@@ -7,9 +7,7 @@ import UsageBanner from "./components/UsageBanner";
 import AdBanner from "./components/AdBanner";
 
 import Home from "./pages/Home";
-import MergePdf from "./pages/MergePdf";
-import ImageToPdf from "./pages/ImageToPdf";
-import SplitPdf from "./pages/SplitPdf";
+
 import Pricing from "./pages/Pricing";
 import Dashboard from "./pages/Dashboard";
 import AiSummary from "./pages/AiSummary";
@@ -17,9 +15,14 @@ import Auth from "./pages/Auth";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import About from "./pages/About";
-import CompressPdf from './pages/CompressPdf';
-import PdfToWord from './pages/PdfToWord';
-import ProtectPdf from './pages/ProtectPdf';
+import MergePdf from "./pages/MergePdf";
+import SplitPdf from "./pages/SplitPdf";
+import ImageToPdf from "./pages/ImageToPdf";
+import RotatePdf from "./pages/RotatePdf";
+import DeletePages from "./pages/DeletePages";
+import WatermarkPdf from "./pages/WatermarkPdf";
+import PdfEditor from "./pages/PdfEditor";
+
 
 
 export default function App() {
@@ -53,9 +56,13 @@ export default function App() {
               <Route path="/about" element={<About />} />
 
               <Route path="*" element={<Home />} />
-              <Route path="/compress-pdf" element={<CompressPdf />} />
-<Route path="/pdf-to-word" element={<PdfToWord />} />
-<Route path="/protect-pdf" element={<ProtectPdf />} />
+              
+              <Route path="/rotate-pdf" element={<RotatePdf />} />
+              <Route path="/delete-pages" element={<DeletePages />} />
+              <Route path="/watermark-pdf" element={<WatermarkPdf />} />
+              <Route path="/pdf-editor" element={<PdfEditor />} />
+
+
 
             </Routes>
           </main>
